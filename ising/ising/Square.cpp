@@ -6,16 +6,19 @@ Square::Square(int L)
 {
 	m_iL = L;
 	m_iNum = L*L;
-	int *m_pHead = new int[m_iNum];
+	m_pHead = new int[m_iNum];
 	for (int i = 0; i < m_iNum; i++)
 	{
 		m_pHead[i] = 1;
 	}
-	
 }
 Square::~Square()
 {
 	delete[]m_pHead;
+}
+int  Square::get_ele(int index)
+{
+	return m_pHead[index];
 }
 int Square::get_left(int index)
 {
@@ -55,9 +58,25 @@ int Square::get_down(int index)
 }
 int Square::sum_neigh(int index)
 {
-
-	int left=0;
-	left = get_left(index);
-	cout << left << endl;
-	return m_pHead[left];
+	return m_pHead[get_down(index)] + m_pHead[get_up(index)] + m_pHead[get_left(index)] + m_pHead[get_right(index)];
+}
+void Square::flip(int index)
+{
+	m_pHead[index]= -m_pHead[index];
+}
+void Square::print_tot()
+{
+	for (int i = 0; i < m_iNum; i++)
+	{
+		cout << m_pHead[i] << " ";
+	}
+}
+float Square::loc_m()
+{
+	int tot=0;
+	for (int i = 0; i < m_iNum; i++)
+	{
+		tot += m_pHead[i];
+	}
+	return tot / float(m_iNum);
 }
