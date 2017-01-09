@@ -2,8 +2,9 @@
 #include "Square.h"
 using namespace std;
 
-Square::Square(int L)
+Square::Square(int L,float T)
 {
+	this->T = T;
 	m_iL = L;
 	m_iNum = L*L;
 	m_pHead = new int[m_iNum];
@@ -59,6 +60,10 @@ int Square::get_down(int index)
 int Square::sum_neigh(int index)
 {
 	return m_pHead[get_down(index)] + m_pHead[get_up(index)] + m_pHead[get_left(index)] + m_pHead[get_right(index)];
+}
+float Square::rho(int index)
+{
+	return  exp(-get_ele(index)*sum_neigh(index) / T);
 }
 void Square::flip(int index)
 {

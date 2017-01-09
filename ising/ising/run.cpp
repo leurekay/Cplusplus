@@ -1,12 +1,13 @@
 #include<iostream>
 #include<ctime>
 #include<cmath>
-#include "Square.h"
-#define L 10
+//#include "Square.h"
+#include "OneMcs.h"
 #define RP 1000
 #define N_BATH 40000
 #define N_MEASURE 40000
 const int nmcs = 2;
+const int L = 10;
 using namespace std;
 void  n_mcs(float T, int n)
 {
@@ -18,17 +19,9 @@ void  n_mcs(float T, int n)
 
 int main()
 {
-	float T =15;
-	float r, rho;
-	srand(time(0));
-	float r0,r1,r2;
-	r0 = (rand()%RP)/float(RP);
-	r1 = (rand() % RP) / float(RP);
-	r2 = (rand() % RP) / float(RP);
-	cout << L*2 <<"  "<<r0 <<"  "<<r1<<"  "<<r2<<endl;
-	Square s(L);
-	Square *s1 = new Square(L);
-	cout << s.sum_neigh(7) << endl;
+	float T =0.9;
+	OneMcs onemcs(L,T);
+
 	cout << "before flip: " << s.get_ele(8) << endl;
 	s.flip(8);
 	cout << "after flip: " << s.get_ele(8) << endl;
@@ -49,7 +42,7 @@ int main()
 	float m_tot = 0;
 	for (int i = 0; i < N_MEASURE; i++)
 	{
-		for (int i = 0; i < nmcs*L*L; i++)
+		for (int i = 0; i < L*L; i++)
 		{
 			r = (rand() % RP) / float(RP);
 			rho = exp(-s.get_ele(i)*s.sum_neigh(i) / T);

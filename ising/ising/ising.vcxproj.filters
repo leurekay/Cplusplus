@@ -21,9 +21,15 @@
     <ClCompile Include="Square.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="OneMcs.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Square.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="OneMcs.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
