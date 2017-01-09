@@ -3,10 +3,10 @@
 #include<cmath>
 #include "Square.h"
 #define L 10
-#define NMCS 2
 #define RP 1000
 #define N_BATH 40000
 #define N_MEASURE 40000
+const int nmcs = 2;
 using namespace std;
 void  n_mcs(float T, int n)
 {
@@ -49,7 +49,7 @@ int main()
 	float m_tot = 0;
 	for (int i = 0; i < N_MEASURE; i++)
 	{
-		for (int i = 0; i < L*L; i++)
+		for (int i = 0; i < nmcs*L*L; i++)
 		{
 			r = (rand() % RP) / float(RP);
 			rho = exp(-s.get_ele(i)*s.sum_neigh(i) / T);
