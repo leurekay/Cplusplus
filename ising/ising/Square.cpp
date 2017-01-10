@@ -63,7 +63,10 @@ int Square::sum_neigh(int index)
 }
 float Square::rho(int index)
 {
-	return  exp(-get_ele(index)*sum_neigh(index) / T);
+	float r;
+	r = exp(-2*get_ele(index)*sum_neigh(index) / T);
+	if (r < 1){ return r; }
+	else { return 1; }
 }
 void Square::flip(int index)
 {
