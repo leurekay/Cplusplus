@@ -6,7 +6,7 @@ Created on Tue Jan 10 21:11:46 2017
 """
 import pylab
 import matplotlib.pyplot as plt
-pathread="squ"
+pathread="tri"
 fr = open(pathread, 'r')
 raw=fr.readlines()
 count=0

@@ -11,7 +11,7 @@
 #define N_MEASURE 10000
 const int nmcs = 2;
 //const int L = 10;
-#define L 20
+#define L 40 
 using namespace std;
 void  n_mcs(float T, int n)
 {	
