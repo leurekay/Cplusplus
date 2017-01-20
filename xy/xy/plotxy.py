@@ -8,7 +8,13 @@ Created on Sat Jan 14 22:17:34 2017
 from math import *
 import matplotlib.pyplot as plt
 import numpy as np
-L=20
+f_para=open("parameter.txt",'r')
+parameter=f_para.readlines()
+L=int(parameter[0].split()[1])
+T=float(parameter[1].split()[1])
+nBath=int(parameter[2].split()[1])
+
+
 pathread="data.txt"
 fr = open(pathread, 'r')
 data=fr.readlines()
@@ -17,15 +23,18 @@ for i in range(L):
     temp=data[i].split()
     for j in range(L):
         lattice[i][j]=temp[j]
+
+
 class Point:
     def __init__(self,x,y):
         self.x=x
         self.y=y
 p1=Point(0,0)
 
+
 def arrow(f,p,angle):
-    A=Point(p.x+0.5*cos(pi+angle),p.y+0.5*sin(pi+angle))
-    B=Point(p.x+0.5*cos(angle),p.y+0.5*sin(angle))   
+    A=Point(p.x+0.4*cos(pi+angle),p.y+0.4*sin(pi+angle))
+    B=Point(p.x+0.4*cos(angle),p.y+0.4*sin(angle))   
     ArrAngle=pi/5
     ArrLen=0.2
     ArrAngle_absolute1=pi+angle-ArrAngle
@@ -44,4 +53,4 @@ for i in range(L):
     for j in range(L):
         p=Point(i+1,j+1)
         arrow(f,p,lattice[i][j])
-plt.savefig(str(L),dpi=500)
+plt.savefig("T"+str(int(T*100))+"L"+str(L),dpi=500)

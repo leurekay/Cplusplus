@@ -24,7 +24,23 @@ void MC::oneMCS()
 	for (int i = 0; i < N; i++)
 	{
 		float randAng;
-		randAng = (rand() % 360)*2*PI/360;
+		randAng = (rand() % 32)*2*PI/float(32);
+		float r;
+		r = (rand() % rand_range) / float(rand_range);
+		if (r < rho(i, randAng))
+		{
+			lattice.chang_value(i, randAng);
+		}
+	}
+}
+void MC::oneMCS1()
+{
+	for (int i = 0; i < N; i++)
+	{
+		float delta_randAng;
+		delta_randAng = (rand() % 360) *  PI / 360;
+		float randAng;
+		randAng = lattice.get_ele(i) + delta_randAng;
 		float r;
 		r = (rand() % rand_range) / float(rand_range);
 		if (r < rho(i, randAng))

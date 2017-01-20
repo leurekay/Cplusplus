@@ -11,7 +11,7 @@
 #define N_MEASURE 10000
 const int nmcs = 2;
 //const int L = 10;
-#define L 40 
+#define L 10 
 using namespace std;
 void  n_mcs(float T, int n)
 {	
@@ -21,8 +21,29 @@ void  n_mcs(float T, int n)
 	}
 }
 
+char int_char(int a)//transform int to float
+{
+	int len = 1;
+	int temp = a;
+	while (a / 10)
+	{
+		a = a / 10;
+		if (a != 0)len++;
+	}
+	char *c = new char[len];
+	for (int i = 0; i < len; i++)
+	{
+		c[len - 1 - i] = char(temp % 10+48);
+		temp = temp/ 10;
+		cout << c[len - 1 - i] << endl;
+	}
+	return *c;
+}
+
 int main()
 {
+	char a[4] = "123";
+	cout << int_char(2253) << endl;
 	char fname[] = "squ";
 	ofstream fout(fname);
 	float T =0.9;

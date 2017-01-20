@@ -18,6 +18,7 @@ public:
 	~MC();
 	float rho(int index, float rand);
 	void oneMCS();
+	void oneMCS1();
 	void print_lattice();
 	float get_ele(int index);
 

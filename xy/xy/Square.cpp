@@ -79,7 +79,7 @@ void Square::print_lattice()
 {
 	for (int i = 0; i < N; i++)
 	{
-		cout << setprecision(1) << conf[i] << " ";
+		cout << setprecision(2) << conf[i] << " ";
 		if ((i + 1) % L == 0)
 		{
 			cout << endl;
